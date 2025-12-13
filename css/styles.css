@@ -1387,6 +1387,12 @@ section {
     color: var(--gray);
 }
 
+.trec-info {
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-bottom: var(--space-sm);
+}
+
 .footer-disclaimer {
     margin-top: var(--space-sm);
     font-size: 0.75rem;
