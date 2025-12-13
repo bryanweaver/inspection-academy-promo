@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for applying to The Inspection Academy Q1 2026 Scholarship!">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Application Received! | TIA Scholarship</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Additional Thank You Page Styles -->
+    <style>
+        .thank-you-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thank-you-hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            background: linear-gradient(135deg, #fef7f7 0%, #fff9f0 50%, #f7f9ff 100%);
+            text-align: center;
+        }
+
+        .thank-you-content {
+            max-width: 700px;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            animation: scaleIn 0.5s ease, pulse-success 2s infinite 0.5s;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse-success {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+            }
+        }
+
+        .thank-you-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .thank-you-subtitle {
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .entry-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-md);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+        }
+
+        .entry-badge i {
+            color: var(--accent);
+        }
+
+        .next-steps {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .next-steps h3 i {
+            color: var(--primary);
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .step-list li:last-child {
+            border-bottom: none;
+        }
+
+        .step-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--primary);
+        }
+
+        .step-text {
+            color: var(--dark-gray);
+        }
+
+        .step-text strong {
+            color: var(--dark);
+        }
+
+        .social-share {
+            margin-bottom: 2.5rem;
+        }
+
+        .social-share p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+        }
+
+        .share-btn.facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .share-btn.facebook:hover {
+            background: #0d65d9;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .share-btn.twitter {
+            background: #000;
+            color: white;
+        }
+
+        .share-btn.twitter:hover {
+            background: #333;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .share-btn.copy {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .share-btn.copy:hover {
+            background: var(--gray);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: var(--radius-xl);
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-section .btn:hover {
+            background: var(--off-white);
+            transform: translateY(-2px);
+        }
+
+        /* Countdown mini */
+        .mini-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .mini-countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .mini-countdown-number {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+
+        .mini-countdown-unit {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* Footer minimal */
+        .thank-you-footer {
+            background: var(--dark);
+            color: var(--gray);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .thank-you-footer a {
+            color: var(--primary-light);
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body class="thank-you-page">
+    <!-- Confetti Canvas -->
+    <canvas id="confetti" class="confetti-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="https://www.theinspectionacademy.com" class="logo" target="_blank" rel="noopener">
+                The Inspection Academy
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Back to Scholarship</a>
+                <a href="https://www.theinspectionacademy.com" class="btn btn-primary btn-sm" target="_blank">Visit Main Site</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Back to Scholarship</a>
+        <a href="https://www.theinspectionacademy.com" class="btn btn-primary" target="_blank">Visit Main Site</a>
+    </div>
+
+    <!-- Thank You Hero -->
+    <section class="thank-you-hero">
+        <div class="thank-you-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <h1 class="thank-you-title">YOU'RE IN!</h1>
+
+            <p class="thank-you-subtitle">
+                Your scholarship application has been received.<br>
+                You're officially entered in the drawing for <strong>$2,495 in home inspector training!</strong>
+            </p>
+
+            <div class="entry-badge">
+                <i class="fas fa-ticket"></i>
+                <span>Entry Confirmed</span>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h3><i class="fas fa-list-check"></i> What Happens Next</h3>
+                <ul class="step-list">
+                    <li>
+                        <div class="step-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="step-text"><strong>Check your email</strong> for a confirmation message from us</div>
+                    </li>
+                    <li>
+                        <div class="step-icon"><i class="fas fa-calendar"></i></div>
+                        <div class="step-text"><strong>Applications close</strong> January 10, 2026 at 11:59 PM CST</div>
+                    </li>
+                    <li>
+                        <div class="step-icon"><i class="fab fa-facebook"></i></div>
+                        <div class="step-text"><strong>Watch the LIVE drawing</strong> on Facebook - January 16, 2026 at 6:00 PM CST</div>
+                    </li>
+                    <li>
+                        <div class="step-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="step-text"><strong>Winner announced</strong> immediately after the drawing - we'll contact you right away!</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Share -->
+            <div class="social-share">
+                <p>Know someone else who should apply?</p>
+                <div class="share-buttons">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://promo.theinspectionacademy.com" target="_blank" rel="noopener" class="share-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Share on Facebook
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=I just applied for a chance to win $2,495 in home inspector training from @InspectionAcad! Apply before Jan 10:&url=https://promo.theinspectionacademy.com" target="_blank" rel="noopener" class="share-btn twitter">
+                        <i class="fab fa-x-twitter"></i>
+                        Share on X
+                    </a>
+                    <button class="share-btn copy" onclick="copyLink()">
+                        <i class="fas fa-link"></i>
+                        Copy Link
+                    </button>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>Can't Wait to Get Started?</h3>
+                <p>Check out our affordable subscription payment plans and start your training today!</p>
+                <a href="https://www.theinspectionacademy.com" target="_blank" class="btn">
+                    <i class="fas fa-external-link"></i>
+                    Explore Payment Plans
+                </a>
+
+                <!-- Mini Countdown -->
+                <div class="mini-countdown">
+                    <div class="mini-countdown-item">
+                        <div class="mini-countdown-number" id="miniDays">00</div>
+                        <div class="mini-countdown-unit">Days</div>
+                    </div>
+                    <div class="mini-countdown-item">
+                        <div class="mini-countdown-number" id="miniHours">00</div>
+                        <div class="mini-countdown-unit">Hours</div>
+                    </div>
+                    <div class="mini-countdown-item">
+                        <div class="mini-countdown-number" id="miniMins">00</div>
+                        <div class="mini-countdown-unit">Mins</div>
+                    </div>
+                    <div class="mini-countdown-item">
+                        <div class="mini-countdown-number" id="miniSecs">00</div>
+                        <div class="mini-countdown-unit">Secs</div>
+                    </div>
+                </div>
+                <p style="margin-top: 0.75rem; font-size: 0.8rem; opacity: 0.8;">Until the live drawing!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="thank-you-footer">
+        <p>&copy; 2025 The Inspection Academy. All rights reserved.</p>
+        <p><a href="https://www.theinspectionacademy.com">www.theinspectionacademy.com</a> | <a href="tel:+12819177360">(281) 917-7360</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Drawing date: January 16, 2026 at 6:00 PM CST
+        const drawingDate = new Date('2026-01-16T18:00:00-06:00');
+
+        // Mini countdown
+        function updateMiniCountdown() {
+            const now = new Date().getTime();
+            const distance = drawingDate.getTime() - now;
+
+            if (distance < 0) {
+                document.getElementById('miniDays').textContent = '00';
+                document.getElementById('miniHours').textContent = '00';
+                document.getElementById('miniMins').textContent = '00';
+                document.getElementById('miniSecs').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('miniDays').textContent = String(days).padStart(2, '0');
+            document.getElementById('miniHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('miniMins').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('miniSecs').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateMiniCountdown, 1000);
+        updateMiniCountdown();
+
+        // Copy link function
+        function copyLink() {
+            navigator.clipboard.writeText('https://promo.theinspectionacademy.com').then(() => {
+                const btn = document.querySelector('.share-btn.copy');
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#10b981';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
+
+        // Confetti effect
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function createParticle() {
+            const colors = ['#c75b57', '#b59d14', '#d98e8b', '#d4bc3b', '#10b981', '#fff'];
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height - canvas.height,
+                r: Math.random() * 6 + 4,
+                d: Math.random() * 150,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                tilt: Math.floor(Math.random() * 10) - 10,
+                tiltAngle: 0,
+                tiltAngleIncrement: Math.random() * 0.07 + 0.05
+            };
+        }
+
+        function launchConfetti() {
+            for (let i = 0; i < 150; i++) {
+                particles.push(createParticle());
+            }
+            animateConfetti();
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p, i) => {
+                ctx.beginPath();
+                ctx.lineWidth = p.r / 2;
+                ctx.strokeStyle = p.color;
+                ctx.moveTo(p.x + p.tilt + p.r / 4, p.y);
+                ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 4);
+                ctx.stroke();
+
+                p.tiltAngle += p.tiltAngleIncrement;
+                p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+                p.tilt = Math.sin(p.tiltAngle - i / 3) * 15;
+
+                if (p.y > canvas.height) {
+                    particles.splice(i, 1);
+                }
+            });
+
+            if (particles.length > 0) {
+                requestAnimationFrame(animateConfetti);
+            }
+        }
+
+        // Launch confetti on page load
+        setTimeout(launchConfetti, 300);
+
+        // Track conversion
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+                event_category: 'form',
+                event_label: 'scholarship_application'
+            });
+        }
+
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', {
+                content_name: 'Scholarship Application Submitted'
+            });
+        }
+    </script>
+
+    <!-- Google Analytics (replace with your tracking ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+</body>
+</html>
