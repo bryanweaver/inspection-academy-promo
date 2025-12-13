@@ -257,6 +257,78 @@
             transform: translateY(-2px);
         }
 
+        /* Add to Calendar */
+        .add-calendar {
+            background: var(--light-gray);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .add-calendar p {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .add-calendar p i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .calendar-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .calendar-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+        }
+
+        .calendar-btn.google {
+            background: #4285f4;
+            color: white;
+        }
+
+        .calendar-btn.google:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .calendar-btn.outlook {
+            background: #0078d4;
+            color: white;
+        }
+
+        .calendar-btn.outlook:hover {
+            background: #106ebe;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .calendar-btn.apple {
+            background: var(--dark);
+            color: white;
+        }
+
+        .calendar-btn.apple:hover {
+            background: #333;
+            transform: translateY(-2px);
+            color: white;
+        }
+
         /* Countdown mini */
         .mini-countdown {
             display: flex;
@@ -352,10 +424,6 @@
                 <h3><i class="fas fa-list-check"></i> What Happens Next</h3>
                 <ul class="step-list">
                     <li>
-                        <div class="step-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="step-text"><strong>Check your email</strong> for a confirmation message from us</div>
-                    </li>
-                    <li>
                         <div class="step-icon"><i class="fas fa-calendar"></i></div>
                         <div class="step-text"><strong>Applications close</strong> January 10, 2026 at 11:59 PM CST</div>
                     </li>
@@ -368,6 +436,25 @@
                         <div class="step-text"><strong>Winner announced</strong> immediately after the drawing - we'll contact you right away!</div>
                     </li>
                 </ul>
+            </div>
+
+            <!-- Add to Calendar -->
+            <div class="add-calendar">
+                <p><i class="fas fa-bell"></i> Don't miss the live drawing!</p>
+                <div class="calendar-buttons">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=TIA%20Scholarship%20Live%20Drawing&dates=20260117T000000Z/20260117T010000Z&details=Watch%20the%20live%20drawing%20for%20The%20Inspection%20Academy%20Q1%202026%20Scholarship%20on%20Facebook!%0A%0Ahttps://facebook.com/theinspectionacademy&location=Facebook%20Live" target="_blank" class="calendar-btn google">
+                        <i class="fab fa-google"></i>
+                        Google Calendar
+                    </a>
+                    <a href="https://outlook.live.com/calendar/0/action/compose?subject=TIA%20Scholarship%20Live%20Drawing&startdt=2026-01-16T18:00:00-06:00&enddt=2026-01-16T19:00:00-06:00&body=Watch%20the%20live%20drawing%20for%20The%20Inspection%20Academy%20Q1%202026%20Scholarship%20on%20Facebook!%0A%0Ahttps://facebook.com/theinspectionacademy&location=Facebook%20Live" target="_blank" class="calendar-btn outlook">
+                        <i class="fab fa-microsoft"></i>
+                        Outlook
+                    </a>
+                    <a href="#" onclick="downloadICS(); return false;" class="calendar-btn apple">
+                        <i class="fas fa-calendar-plus"></i>
+                        Apple / Other
+                    </a>
+                </div>
             </div>
 
             <!-- Social Share -->
@@ -550,6 +637,30 @@
 
         // Launch confetti on page load
         setTimeout(launchConfetti, 300);
+
+        // Download ICS file for Apple/Other calendars
+        function downloadICS() {
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Inspection Academy//Scholarship Drawing//EN
+BEGIN:VEVENT
+DTSTART:20260117T000000Z
+DTEND:20260117T010000Z
+SUMMARY:TIA Scholarship Live Drawing
+DESCRIPTION:Watch the live drawing for The Inspection Academy Q1 2026 Scholarship on Facebook!\\n\\nhttps://facebook.com/theinspectionacademy
+LOCATION:Facebook Live
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'tia-scholarship-drawing.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
         // Track conversion
         if (typeof gtag !== 'undefined') {
