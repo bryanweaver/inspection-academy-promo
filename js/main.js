@@ -10,9 +10,11 @@
     // CONFIGURATION
     // ========================================
     const CONFIG = {
-        // Drawing date: April 7, 2026 at 6:00 PM CST
+        // Promotion start date: February 15, 2026 at midnight CST
+        promotionStartDate: new Date('2026-02-15T00:00:00-06:00'),
+        // Drawing date: April 7, 2026 at 6:00 PM CDT
         drawingDate: new Date('2026-04-07T18:00:00-05:00'),
-        // Application deadline: April 1, 2026 at 11:59 PM CST (45 days from Feb 15 open)
+        // Application deadline: April 1, 2026 at 11:59 PM CDT (45 days from Feb 15 open)
         applicationDeadline: new Date('2026-04-01T23:59:59-05:00'),
         // Essay word limits
         essayMinWords: 250,
@@ -85,6 +87,71 @@
         onComplete() {
             // Could trigger confetti or other celebration effect
             console.log('Countdown complete!');
+        }
+    }
+
+    // ========================================
+    // PROMOTION PHASE MANAGER
+    // ========================================
+    class PromotionPhaseManager {
+        constructor() {
+            this.isPromotionActive = new Date() >= CONFIG.promotionStartDate;
+        }
+
+        init() {
+            this.updateUI();
+        }
+
+        getCountdownTarget() {
+            return this.isPromotionActive ? CONFIG.drawingDate : CONFIG.promotionStartDate;
+        }
+
+        updateUI() {
+            // Update countdown label and date text
+            const countdownLabel = document.querySelector('.countdown-label');
+            const countdownDate = document.querySelector('.countdown-date');
+
+            if (this.isPromotionActive) {
+                // Promotion is active - show drawing countdown
+                if (countdownLabel) countdownLabel.textContent = 'Live Drawing In:';
+                if (countdownDate) {
+                    countdownDate.innerHTML = '<i class="fab fa-facebook-square"></i> April 7, 2026 at 6:00 PM CDT - Facebook Live';
+                }
+                this.showApplyElements();
+            } else {
+                // Pre-launch - show start countdown
+                if (countdownLabel) countdownLabel.textContent = 'Promotion Starts In:';
+                if (countdownDate) {
+                    countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> Applications open February 15, 2026';
+                }
+                this.hideApplyElements();
+            }
+        }
+
+        hideApplyElements() {
+            // Hide all apply buttons
+            document.querySelectorAll('.apply-btn').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            // Hide apply section
+            const applySection = document.getElementById('apply');
+            if (applySection) {
+                applySection.style.display = 'none';
+            }
+        }
+
+        showApplyElements() {
+            // Show all apply buttons
+            document.querySelectorAll('.apply-btn').forEach(el => {
+                el.style.display = '';
+            });
+
+            // Show apply section
+            const applySection = document.getElementById('apply');
+            if (applySection) {
+                applySection.style.display = '';
+            }
         }
     }
 
@@ -655,8 +722,12 @@
     // INITIALIZE EVERYTHING
     // ========================================
     function init() {
-        // Countdown Timer
-        const countdown = new CountdownTimer(CONFIG.drawingDate, {
+        // Promotion Phase Manager - determines if promotion is active
+        const phaseManager = new PromotionPhaseManager();
+        phaseManager.init();
+
+        // Countdown Timer - target depends on promotion phase
+        const countdown = new CountdownTimer(phaseManager.getCountdownTarget(), {
             days: 'days',
             hours: 'hours',
             minutes: 'minutes',
