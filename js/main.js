@@ -10,10 +10,10 @@
     // CONFIGURATION
     // ========================================
     const CONFIG = {
-        // Drawing date: January 16, 2026 at 6:00 PM CST
-        drawingDate: new Date('2026-01-16T18:00:00-06:00'),
-        // Application deadline: January 10, 2026 at 11:59 PM CST
-        applicationDeadline: new Date('2026-01-10T23:59:59-06:00'),
+        // Drawing date: April 7, 2026 at 6:00 PM CST
+        drawingDate: new Date('2026-04-07T18:00:00-05:00'),
+        // Application deadline: April 1, 2026 at 11:59 PM CST (45 days from Feb 15 open)
+        applicationDeadline: new Date('2026-04-01T23:59:59-05:00'),
         // Essay word limits
         essayMinWords: 250,
         essayMaxWords: 500
