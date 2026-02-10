@@ -12,10 +12,10 @@
     const CONFIG = {
         // Promotion start date: February 15, 2026 at midnight CST
         promotionStartDate: new Date('2026-02-15T00:00:00-06:00'),
-        // Drawing date: April 7, 2026 at 6:00 PM CDT
-        drawingDate: new Date('2026-04-07T18:00:00-05:00'),
-        // Application deadline: April 1, 2026 at 11:59 PM CDT (45 days from Feb 15 open)
-        applicationDeadline: new Date('2026-04-01T23:59:59-05:00'),
+        // Drawing date: April 1, 2026 at 6:00 PM CST
+        drawingDate: new Date('2026-04-01T18:00:00-05:00'),
+        // Application deadline: March 25, 2026 at 11:59 PM CDT
+        applicationDeadline: new Date('2026-03-25T23:59:59-05:00'),
         // Essay word limits
         essayMinWords: 250,
         essayMaxWords: 500
@@ -113,9 +113,9 @@
 
             if (this.isPromotionActive) {
                 // Promotion is active - show drawing countdown
-                if (countdownLabel) countdownLabel.textContent = 'Live Drawing In:';
+                if (countdownLabel) countdownLabel.textContent = 'Drawing In:';
                 if (countdownDate) {
-                    countdownDate.innerHTML = '<i class="fab fa-facebook-square"></i> April 7, 2026 at 6:00 PM CDT - Facebook Live';
+                    countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> April 1, 2026 at 6:00 PM CST';
                 }
                 this.showApplyElements();
             } else {
