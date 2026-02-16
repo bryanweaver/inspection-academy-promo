@@ -1,14 +1,14 @@
-# The Inspection Academy - Q1 2026 Scholarship Landing Page
+# The Inspection Academy - Q2 2026 Scholarship Landing Page
 
-A promotional landing page for The Inspection Academy's Q1 2026 Scholarship giveaway.
+A promotional landing page for The Inspection Academy's Q2 2026 Scholarship giveaway.
 
 ## Live URL
 `https://promo.theinspectionacademy.com`
 
 ## Key Dates
-- **Launch:** December 17, 2025
-- **Applications Close:** January 10, 2026 at 11:59 PM CST
-- **Live Drawing:** January 16, 2026 at 6:00 PM CST (Facebook Live)
+- **Launch:** February 15, 2026
+- **Applications Close:** March 25, 2026 at 11:59 PM CDT
+- **Live Drawing:** April 1, 2026 at 6:00 PM CST
 
 ---
 
@@ -151,7 +151,7 @@ Edit CSS variables in `css/styles.css`:
 Edit in `js/main.js`:
 ```javascript
 const CONFIG = {
-    drawingDate: new Date('2026-01-16T18:00:00-06:00'),
+    drawingDate: new Date('2026-04-01T18:00:00-05:00'),
     // ...
 };
 ```
