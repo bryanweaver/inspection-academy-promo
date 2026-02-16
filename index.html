@@ -352,177 +352,9 @@
                     <p>All fields marked with <span class="required-star">*</span> are required</p>
                 </div>
 
-                <!-- Tally Form Embed - Replace with your actual Tally form ID -->
-                <div class="tally-form-wrapper">
-                    <iframe
-                        data-tally-src="https://tally.so/embed/vGM6Lv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                        loading="lazy"
-                        width="100%"
-                        height="800"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0"
-                        title="Scholarship Application"
-                        id="tallyForm">
-                    </iframe>
-                </div>
+                <!-- MailerLite Embedded Form -->
+                <div class="ml-embedded" data-form="EoUYmQ"></div>
 
-                <!-- Fallback Custom Form (shown if Tally is not configured) -->
-                <form class="scholarship-form" id="scholarshipForm" style="display: none;">
-                    <!-- Personal Information -->
-                    <div class="form-section">
-                        <h4 class="form-section-title">
-                            <i class="fas fa-user"></i>
-                            Personal Information
-                        </h4>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullName">Full Name <span class="required-star">*</span></label>
-                                <input type="text" id="fullName" name="fullName" placeholder="John Smith" required minlength="2">
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-row two-col">
-                            <div class="form-group">
-                                <label for="email">Email Address <span class="required-star">*</span></label>
-                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                                <span class="error-message"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number <span class="required-star">*</span></label>
-                                <input type="tel" id="phone" name="phone" placeholder="(281) 555-1234" required>
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-row two-col">
-                            <div class="form-group">
-                                <label for="city">City <span class="required-star">*</span></label>
-                                <input type="text" id="city" name="city" placeholder="Houston" required>
-                                <span class="error-message"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="zipCode">Zip Code <span class="required-star">*</span></label>
-                                <input type="text" id="zipCode" name="zipCode" placeholder="77536" required pattern="[0-9]{5}" maxlength="5">
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Background Information -->
-                    <div class="form-section">
-                        <h4 class="form-section-title">
-                            <i class="fas fa-briefcase"></i>
-                            Background Information
-                        </h4>
-
-                        <div class="form-row two-col">
-                            <div class="form-group">
-                                <label for="employment">Current Employment Status <span class="required-star">*</span></label>
-                                <select id="employment" name="employment" required>
-                                    <option value="">Select one...</option>
-                                    <option value="employed-ft">Employed full-time</option>
-                                    <option value="employed-pt">Employed part-time</option>
-                                    <option value="self-employed">Self-employed</option>
-                                    <option value="unemployed">Unemployed/between jobs</option>
-                                    <option value="retired">Retired</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <span class="error-message"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="timeline">Timeline for Starting Training <span class="required-star">*</span></label>
-                                <select id="timeline" name="timeline" required>
-                                    <option value="">Select one...</option>
-                                    <option value="immediately">Immediately (within 1 month)</option>
-                                    <option value="3-months">Within 3 months</option>
-                                    <option value="6-months">Within 6 months</option>
-                                    <option value="exploring">Just exploring options</option>
-                                </select>
-                                <span class="error-message"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Essay Section -->
-                    <div class="form-section">
-                        <h4 class="form-section-title">
-                            <i class="fas fa-pen-fancy"></i>
-                            Tell Us Your Story
-                        </h4>
-
-                        <div class="form-group">
-                            <label for="essay">
-                                Tell us why you are considering home inspection as a career. What's driving this potential change, and what would becoming a licensed home inspector mean for you and your family? <span class="required-star">*</span>
-                            </label>
-                            <textarea
-                                id="essay"
-                                name="essay"
-                                rows="10"
-                                placeholder="Share your story here... (250-500 words)"
-                                required
-                                minlength="1500"
-                                maxlength="3000"></textarea>
-                            <div class="word-counter">
-                                <span id="wordCount">0</span> / 500 words
-                                <span class="word-hint">(minimum 250 words)</span>
-                            </div>
-                            <span class="error-message"></span>
-                        </div>
-                    </div>
-
-                    <!-- Legal Agreements -->
-                    <div class="form-section">
-                        <h4 class="form-section-title">
-                            <i class="fas fa-file-contract"></i>
-                            Legal Agreements
-                        </h4>
-
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="texasResident" name="texasResident" required>
-                                <span class="checkmark"></span>
-                                <span class="checkbox-text">I am a legal resident of Texas and at least 18 years of age <span class="required-star">*</span></span>
-                            </label>
-                        </div>
-
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="communications" name="communications" required>
-                                <span class="checkmark"></span>
-                                <span class="checkbox-text">I agree to receive follow-up communications from The Inspection Academy about home inspection training opportunities <span class="required-star">*</span></span>
-                            </label>
-                        </div>
-
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="rulesAgreement" name="rulesAgreement" required>
-                                <span class="checkmark"></span>
-                                <span class="checkbox-text">I have read and agree to the <a href="docs/official-rules.pdf" target="_blank">Official Rules</a> and <a href="docs/privacy-policy.pdf" target="_blank">Privacy Policy</a> <span class="required-star">*</span></span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary btn-lg btn-submit" id="submitBtn">
-                            <span class="btn-text">
-                                <i class="fas fa-paper-plane"></i>
-                                Submit Application
-                            </span>
-                            <span class="btn-loading" style="display: none;">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                Submitting...
-                            </span>
-                        </button>
-                        <p class="form-disclaimer">
-                            <i class="fas fa-lock"></i>
-                            Your information is secure and will never be shared.
-                        </p>
-                    </div>
-                </form>
             </div>
         </div>
     </section>
@@ -744,10 +576,11 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
 
-    <!-- Tally Form Script -->
+    <!-- MailerLite Universal -->
     <script>
-        // Load Tally forms
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s)}
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1072498');
     </script>
 
     <!-- Facebook Pixel (replace with your pixel ID) -->
