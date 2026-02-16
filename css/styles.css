@@ -899,9 +899,30 @@ section {
 
 /* MailerLite Embedded Form */
 .ml-embedded {
-    padding: var(--space-lg);
+    padding: var(--space-xl) var(--space-2xl);
 }
 
+.ml-embedded .ml-form-embedWrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.ml-embedded .ml-form-embedBody {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.ml-embedded .ml-form-embedBody .ml-form-formContent {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+
+@media (max-width: 768px) {
+    .ml-embedded {
+        padding: var(--space-lg) var(--space-md);
+    }
+}
 
 /* ========================================
    WHY TIA SECTION
