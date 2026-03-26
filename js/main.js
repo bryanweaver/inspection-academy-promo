@@ -95,63 +95,107 @@
     // ========================================
     class PromotionPhaseManager {
         constructor() {
-            this.isPromotionActive = new Date() >= CONFIG.promotionStartDate;
+            const now = new Date();
+            this.phase = now < CONFIG.promotionStartDate ? 'pre-launch'
+                       : now <= CONFIG.applicationDeadline ? 'active'
+                       : 'closed';
         }
 
         init() {
             this.updateUI();
+            this.updateTimeline();
         }
 
         getCountdownTarget() {
-            return this.isPromotionActive ? CONFIG.drawingDate : CONFIG.promotionStartDate;
+            if (this.phase === 'pre-launch') return CONFIG.promotionStartDate;
+            return CONFIG.drawingDate;
         }
 
         updateUI() {
-            // Update countdown label and date text
             const countdownLabel = document.querySelector('.countdown-label');
             const countdownDate = document.querySelector('.countdown-date');
 
-            if (this.isPromotionActive) {
-                // Promotion is active - show drawing countdown
+            if (this.phase === 'pre-launch') {
+                if (countdownLabel) countdownLabel.textContent = 'Promotion Starts In:';
+                if (countdownDate) {
+                    countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> Applications open February 15, 2026';
+                }
+                this.hideApplyElements();
+            } else if (this.phase === 'active') {
                 if (countdownLabel) countdownLabel.textContent = 'Drawing In:';
                 if (countdownDate) {
                     countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> April 1, 2026 at 6:00 PM CST';
                 }
                 this.showApplyElements();
             } else {
-                // Pre-launch - show start countdown
-                if (countdownLabel) countdownLabel.textContent = 'Promotion Starts In:';
+                // closed phase
+                if (countdownLabel) countdownLabel.textContent = 'Drawing In:';
                 if (countdownDate) {
-                    countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> Applications open February 15, 2026';
+                    countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> April 1, 2026 at 6:00 PM CST';
                 }
-                this.hideApplyElements();
+                this.showClosedState();
+            }
+        }
+
+        updateTimeline() {
+            if (this.phase === 'closed') {
+                // Steps 1 & 2 completed, step 3 is upcoming/current
+                document.querySelectorAll('.timeline-item[data-step="1"], .timeline-item[data-step="2"]').forEach(item => {
+                    item.classList.add('timeline-completed');
+                    const num = item.querySelector('.timeline-number');
+                    if (num) num.innerHTML = '<i class="fas fa-check"></i>';
+                });
+                const step3 = document.querySelector('.timeline-item[data-step="3"]');
+                if (step3) step3.classList.add('timeline-current');
+            } else if (this.phase === 'active') {
+                // Step 1 is current
+                const step1 = document.querySelector('.timeline-item[data-step="1"]');
+                if (step1) step1.classList.add('timeline-current');
             }
         }
 
         hideApplyElements() {
-            // Hide all apply buttons
+            document.querySelectorAll('.apply-btn').forEach(el => {
+                el.style.display = 'none';
+            });
+            const applySection = document.getElementById('apply');
+            if (applySection) applySection.style.display = 'none';
+        }
+
+        showApplyElements() {
+            document.querySelectorAll('.apply-btn').forEach(el => {
+                el.style.display = '';
+            });
+            const applySection = document.getElementById('apply');
+            if (applySection) applySection.style.display = '';
+        }
+
+        showClosedState() {
+            // Hide apply buttons in nav and hero
             document.querySelectorAll('.apply-btn').forEach(el => {
                 el.style.display = 'none';
             });
 
-            // Hide apply section
-            const applySection = document.getElementById('apply');
-            if (applySection) {
-                applySection.style.display = 'none';
-            }
-        }
+            // Check if notify form is configured (not placeholder)
+            const notifySection = document.getElementById('apply-notify');
+            const notifyForm = notifySection ? notifySection.querySelector('.ml-embedded') : null;
+            const hasNotifyForm = notifyForm && notifyForm.dataset.form && notifyForm.dataset.form !== 'NOTIFY_FORM_ID';
 
-        showApplyElements() {
-            // Show all apply buttons
-            document.querySelectorAll('.apply-btn').forEach(el => {
-                el.style.display = '';
-            });
+            // Show the closed hero CTA only if notify form is ready
+            const heroCtaClosed = document.querySelector('.hero-cta-closed');
+            if (heroCtaClosed) heroCtaClosed.style.display = hasNotifyForm ? '' : 'none';
 
-            // Show apply section
+            // Show notify section only if form is ready
+            if (notifySection) notifySection.style.display = hasNotifyForm ? '' : 'none';
+
+            // Show the apply section but swap content
             const applySection = document.getElementById('apply');
-            if (applySection) {
-                applySection.style.display = '';
-            }
+            if (applySection) applySection.style.display = '';
+
+            const applyOpen = document.getElementById('apply-open');
+            const applyClosed = document.getElementById('apply-closed');
+            if (applyOpen) applyOpen.style.display = 'none';
+            if (applyClosed) applyClosed.style.display = '';
         }
     }
 

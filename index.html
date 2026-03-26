@@ -159,6 +159,14 @@
                 </a>
             </div>
 
+            <div class="hero-cta-closed animate-fade-in-up delay-3" style="display: none;">
+                <p class="deadline-passed-text">The application deadline has passed — stay tuned for the drawing on April 1!</p>
+                <a href="#apply-notify" class="btn btn-accent btn-lg pulse">
+                    <i class="fas fa-bell"></i>
+                    Notify Me About the Next Scholarship
+                </a>
+            </div>
+
             <div class="trust-badges animate-fade-in delay-4">
                 <div class="badge">
                     <i class="fas fa-check-circle"></i>
@@ -295,7 +303,7 @@
             </div>
 
             <div class="timeline">
-                <div class="timeline-item scroll-animate">
+                <div class="timeline-item scroll-animate" data-step="1">
                     <div class="timeline-number">1</div>
                     <div class="timeline-content">
                         <div class="timeline-date">Feb 15 - Mar 25</div>
@@ -304,7 +312,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item scroll-animate">
+                <div class="timeline-item scroll-animate" data-step="2">
                     <div class="timeline-number">2</div>
                     <div class="timeline-content">
                         <div class="timeline-date">Mar 25, 11:59 PM</div>
@@ -313,7 +321,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item scroll-animate">
+                <div class="timeline-item scroll-animate" data-step="3">
                     <div class="timeline-number">3</div>
                     <div class="timeline-content">
                         <div class="timeline-date">Apr 1, 6:00 PM CST</div>
@@ -322,7 +330,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item scroll-animate">
+                <div class="timeline-item scroll-animate" data-step="4">
                     <div class="timeline-number">4</div>
                     <div class="timeline-content">
                         <div class="timeline-date">After Drawing</div>
@@ -337,23 +345,62 @@
     <!-- Application Form Section -->
     <section class="apply-section" id="apply">
         <div class="container">
-            <div class="section-header scroll-animate">
-                <span class="section-badge">Enter Now</span>
-                <h2 class="section-title">APPLY FOR THE SCHOLARSHIP</h2>
-                <p class="section-subtitle">Complete the form below - it only takes a few minutes!</p>
+            <!-- Active application (shown before deadline) -->
+            <div id="apply-open">
+                <div class="form-container scroll-animate">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-file-pen"></i>
+                        </div>
+                        <h3>Scholarship Application</h3>
+                    </div>
+
+                    <!-- MailerLite Embedded Form -->
+                    <div class="ml-embedded" data-form="EoUYmQ"></div>
+                </div>
             </div>
 
-            <div class="form-container scroll-animate">
-                <div class="form-header">
-                    <div class="form-icon">
-                        <i class="fas fa-file-pen"></i>
-                    </div>
-                    <h3>Scholarship Application</h3>
+            <!-- Closed state (shown after deadline) -->
+            <div id="apply-closed" style="display: none;">
+                <div class="section-header scroll-animate">
+                    <span class="section-badge">Applications Closed</span>
+                    <h2 class="section-title">THE APPLICATION PERIOD HAS ENDED</h2>
+                    <p class="section-subtitle">Thank you to everyone who applied for the Q2 2026 Scholarship!</p>
                 </div>
 
-                <!-- MailerLite Embedded Form -->
-                <div class="ml-embedded" data-form="EoUYmQ"></div>
+                <div class="closed-message scroll-animate">
+                    <div class="closed-message-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>What Happens Next?</h3>
+                    <p>Applications closed on <strong>March 25, 2026 at 11:59 PM CDT</strong>. All entries are being verified for eligibility. The winner will be drawn on <strong>April 1, 2026 at 6:00 PM CST</strong> and results will be emailed to all applicants.</p>
+                    <div class="closed-message-details">
+                        <div class="closed-detail">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Entries are being verified</span>
+                        </div>
+                        <div class="closed-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Drawing: April 1 at 6:00 PM CST</span>
+                        </div>
+                        <div class="closed-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>All applicants will be emailed results</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="notify-section scroll-animate" id="apply-notify">
+                    <div class="notify-header">
+                        <div class="notify-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Don't Miss the Next One!</h3>
+                        <p>Sign up to be notified about future scholarship opportunities.</p>
+                    </div>
+                    <!-- Replace data-form value with your MailerLite "notify me" form ID -->
+                    <div class="ml-embedded" data-form="NOTIFY_FORM_ID"></div>
+                </div>
             </div>
         </div>
     </section>
