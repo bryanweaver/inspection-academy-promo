@@ -167,6 +167,13 @@
                 </a>
             </div>
 
+            <div class="hero-cta-completed animate-fade-in-up delay-3" style="display: none;">
+                <a href="#apply-notify" class="btn btn-accent btn-lg pulse">
+                    <i class="fas fa-bell"></i>
+                    Get Notified About the Next Scholarship
+                </a>
+            </div>
+
             <div class="trust-badges animate-fade-in delay-4">
                 <div class="badge">
                     <i class="fas fa-check-circle"></i>
@@ -360,7 +367,7 @@
                 </div>
             </div>
 
-            <!-- Closed state (shown after deadline) -->
+            <!-- Closed state (shown after deadline, before drawing) -->
             <div id="apply-closed" style="display: none;">
                 <div class="section-header scroll-animate">
                     <span class="section-badge">Applications Closed</span>
@@ -391,6 +398,49 @@
                 </div>
 
                 <div class="notify-section scroll-animate" id="apply-notify">
+                    <div class="notify-header">
+                        <div class="notify-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Don't Miss the Next One!</h3>
+                        <p>Sign up to be notified about future scholarship opportunities.</p>
+                    </div>
+                    <!-- MailerLite Notify Form Embed -->
+                    <div class="ml-embedded" data-form="WauZWm"></div>
+                </div>
+            </div>
+
+            <!-- Completed state (shown after drawing) -->
+            <div id="apply-completed" style="display: none;">
+                <div class="section-header scroll-animate">
+                    <span class="section-badge">Drawing Complete</span>
+                    <h2 class="section-title">THANK YOU FOR PARTICIPATING!</h2>
+                    <p class="section-subtitle">The Q2 2026 Scholarship drawing has been completed. Congratulations to our winner!</p>
+                </div>
+
+                <div class="closed-message scroll-animate">
+                    <div class="closed-message-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>The Drawing Is Complete</h3>
+                    <p>The winner was drawn on <strong>April 1, 2026</strong> and has been notified. Thank you to everyone who took the time to apply — we were truly inspired by your stories and your drive to start a new career in home inspection.</p>
+                    <div class="closed-message-details">
+                        <div class="closed-detail">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Winner has been selected and notified</span>
+                        </div>
+                        <div class="closed-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>All applicants have been emailed</span>
+                        </div>
+                        <div class="closed-detail">
+                            <i class="fas fa-bell"></i>
+                            <span>Sign up below for the next scholarship</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notify-section scroll-animate">
                     <div class="notify-header">
                         <div class="notify-icon">
                             <i class="fas fa-bell"></i>

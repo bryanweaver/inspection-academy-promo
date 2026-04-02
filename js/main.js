@@ -98,7 +98,8 @@
             const now = new Date();
             this.phase = now < CONFIG.promotionStartDate ? 'pre-launch'
                        : now <= CONFIG.applicationDeadline ? 'active'
-                       : 'closed';
+                       : now <= CONFIG.drawingDate ? 'closed'
+                       : 'completed';
         }
 
         init() {
@@ -127,18 +128,31 @@
                     countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> April 1, 2026 at 6:00 PM CST';
                 }
                 this.showApplyElements();
-            } else {
-                // closed phase
+            } else if (this.phase === 'closed') {
                 if (countdownLabel) countdownLabel.textContent = 'Drawing In:';
                 if (countdownDate) {
                     countdownDate.innerHTML = '<i class="fas fa-calendar-alt"></i> April 1, 2026 at 6:00 PM CST';
                 }
                 this.showClosedState();
+            } else {
+                // completed phase — drawing is done
+                const countdownWrapper = document.querySelector('.countdown-wrapper');
+                if (countdownWrapper) {
+                    countdownWrapper.innerHTML = '<div class="drawing-complete"><i class="fas fa-trophy"></i><p class="drawing-complete-text">Q2 2026 Drawing Complete</p><p class="drawing-complete-subtext">Thank you to all who participated.</p></div>';
+                }
+                this.showCompletedState();
             }
         }
 
         updateTimeline() {
-            if (this.phase === 'closed') {
+            if (this.phase === 'completed') {
+                // All steps completed
+                document.querySelectorAll('.timeline-item').forEach(item => {
+                    item.classList.add('timeline-completed');
+                    const num = item.querySelector('.timeline-number');
+                    if (num) num.innerHTML = '<i class="fas fa-check"></i>';
+                });
+            } else if (this.phase === 'closed') {
                 // Steps 1 & 2 completed, step 3 is upcoming/current
                 document.querySelectorAll('.timeline-item[data-step="1"], .timeline-item[data-step="2"]').forEach(item => {
                     item.classList.add('timeline-completed');
@@ -196,6 +210,42 @@
             const applyClosed = document.getElementById('apply-closed');
             if (applyOpen) applyOpen.style.display = 'none';
             if (applyClosed) applyClosed.style.display = '';
+        }
+
+        showCompletedState() {
+            // Update hero subtitle for completed state
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle) {
+                heroSubtitle.innerHTML = 'Thank you to everyone who applied for the Q2 2026 Scholarship.<br>Sign up below to be notified about future opportunities!';
+            }
+
+            // Hide apply buttons in nav and hero
+            document.querySelectorAll('.apply-btn').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            // Show completed hero CTA
+            const heroCtaCompleted = document.querySelector('.hero-cta-completed');
+            if (heroCtaCompleted) heroCtaCompleted.style.display = '';
+
+            // Hide the closed hero CTA
+            const heroCtaClosed = document.querySelector('.hero-cta-closed');
+            if (heroCtaClosed) heroCtaClosed.style.display = 'none';
+
+            // Show the apply section with completed content
+            const applySection = document.getElementById('apply');
+            if (applySection) applySection.style.display = '';
+
+            const applyOpen = document.getElementById('apply-open');
+            const applyClosed = document.getElementById('apply-closed');
+            const applyCompleted = document.getElementById('apply-completed');
+            if (applyOpen) applyOpen.style.display = 'none';
+            if (applyClosed) applyClosed.style.display = 'none';
+            if (applyCompleted) applyCompleted.style.display = '';
+
+            // Show notify section
+            const notifySection = document.getElementById('apply-notify');
+            if (notifySection) notifySection.style.display = '';
         }
     }
 
@@ -568,14 +618,16 @@
         const phaseManager = new PromotionPhaseManager();
         phaseManager.init();
 
-        // Countdown Timer - target depends on promotion phase
-        const countdown = new CountdownTimer(phaseManager.getCountdownTarget(), {
-            days: 'days',
-            hours: 'hours',
-            minutes: 'minutes',
-            seconds: 'seconds'
-        });
-        countdown.start();
+        // Countdown Timer - only run if drawing hasn't happened yet
+        if (phaseManager.phase !== 'completed') {
+            const countdown = new CountdownTimer(phaseManager.getCountdownTarget(), {
+                days: 'days',
+                hours: 'hours',
+                minutes: 'minutes',
+                seconds: 'seconds'
+            });
+            countdown.start();
+        }
 
         // Scroll Animations
         const scrollAnimations = new ScrollAnimations();

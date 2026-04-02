@@ -511,18 +511,43 @@ ul {
     margin-right: var(--space-xs);
 }
 
+/* Drawing Complete (replaces countdown) */
+.drawing-complete {
+    text-align: center;
+    padding: var(--space-xl) 0;
+}
+
+.drawing-complete i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+}
+
+.drawing-complete-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: var(--space-xs);
+}
+
+.drawing-complete-subtext {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+}
+
 /* Hero CTA */
 .hero-cta {
     margin-bottom: var(--space-2xl);
 }
 
-.hero-cta-closed {
+.hero-cta-closed,
+.hero-cta-completed {
     margin-bottom: var(--space-2xl);
     text-align: center;
 }
 
 .deadline-passed-text {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--dark-gray);
     font-size: 1.1rem;
     margin-bottom: var(--space-lg);
     font-weight: 500;
