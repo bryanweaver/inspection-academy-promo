@@ -1,6 +1,19 @@
-# The Inspection Academy - Q1 2026 Scholarship Landing Page
+# The Inspection Academy - Promo Site (Parked)
 
-A promotional landing page for The Inspection Academy's Q1 2026 Scholarship giveaway.
+> **Status: Intentionally Parked**
+>
+> This subdomain (`promo.theinspectionacademy.com`) is currently parked and shows a blank page.
+> The Q2 2026 scholarship promotion has ended. The CNAME and GitHub Pages configuration are
+> preserved so the domain resolves cleanly (instead of showing a GitHub 404 page) until a
+> future campaign is ready.
+>
+> **For the main site, visit:** https://www.theinspectionacademy.com
+
+---
+
+## Previous Campaign (Q2 2026 Scholarship)
+
+This was previously a promotional landing page for The Inspection Academy's scholarship giveaway.
 
 ## Live URL
 `https://promo.theinspectionacademy.com`
